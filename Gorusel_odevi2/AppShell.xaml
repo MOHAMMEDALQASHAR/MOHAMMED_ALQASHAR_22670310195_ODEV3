@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Gorusel_odevi2.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Gorusel_odevi2"
+    Shell.FlyoutBehavior="Flyout">
+    
+    
+    
+    <ShellContent
+        Title="Giriş"
+        ContentTemplate="{DataTemplate local:Kaydol}" 
+        Route="Kaydol"
+        Icon="home.png" />
+    
+   
+        <ShellContent
+        Title="Kurlar"
+        Icon="para.png"
+        ContentTemplate="{DataTemplate local:KurlarSayfasi}"
+        Route="KurlarSayfasi" />
+        
+        <ShellContent
+        Title="Haberler"
+        Icon="news.png"
+        ContentTemplate="{DataTemplate local:Haberler}"
+        Route="Haberler" />
+        
+        <ShellContent
+        Title="Hava Durumu"
+        Icon="hava.png"
+        ContentTemplate="{DataTemplate local:HavaDurumuSayfasi}"
+        Route="HavaDurumuSayfasi" />
+        
+        <ShellContent
+        Title="Yapilacaklar"
+        Icon="task.png"
+        ContentTemplate="{DataTemplate local:task_sayfa}"
+        Route="task_sayfa" />
+        
+        <ShellContent
+        Title="Ayarlar"
+        Icon="setting.png"
+        ContentTemplate="{DataTemplate local:AyarlarSayfasi}"
+        Route="AyarlarSayfasi" />
+
+      
+    
+
+</Shell>

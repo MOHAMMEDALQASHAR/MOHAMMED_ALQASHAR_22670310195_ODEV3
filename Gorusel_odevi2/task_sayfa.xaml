@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gorusel_odevi2.task_sayfa"
+             Title="Gorev">
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Ekle"    Order="Primary" IconImageSource="add.png" Clicked="TaskEkleEvent"/>
+        <ToolbarItem Text="Yenile" Order="Primary" IconImageSource="refresh.png" Clicked="ToolbarItem_Clicked"/>
+
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+
+
+        <CollectionView x:Name="listTask" SelectionMode="Single" Margin="5">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                   
+                      
+
+
+                        <Border Background="Transparent" Margin="5">
+
+                        <VerticalStackLayout HeightRequest="100">
+
+                                <Label Text="{Binding Title}" FontSize="20" />
+                                <Label Text="{Binding Task}" FontSize="12" />
+
+
+                        
+                            
+
+                            <FlyoutBase.ContextFlyout>
+                                <MenuFlyout>
+                                    <MenuFlyoutItem Text="Düzenle" 
+                                                   IconImageSource="edit.png"
+                                                   Clicked="TaskDuzenleEvent"
+                                                   CommandParameter="{Binding ID}"/>
+
+                                    <MenuFlyoutItem Text="Sil" 
+                                                   IconImageSource="trash.png"
+                                                   Clicked="TaskSilEvent"
+                                                   CommandParameter="{Binding ID}"/>
+
+
+                                </MenuFlyout>
+                            </FlyoutBase.ContextFlyout>
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </ScrollView>
+
+
+</ContentPage>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gorusel_odevi2.HavaDurumuSayfasi"
+             Title="Hava Durumu">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Ekle" Order="Primary" IconImageSource="add.png" Clicked="OnAddCityClicked" />
+        <ToolbarItem Text="Sil" Order="Primary" IconImageSource="recycle.png" Clicked="ToolbarItem_Clicked" />
+        <ToolbarItem Text="Yenile" Order="Primary" IconImageSource="refresh.png" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20" Spacing="15">
+            <Label Text="Hava Durumu" 
+                   FontSize="28" 
+                   HorizontalOptions="Center" 
+                   TextColor="#0078D7" 
+                   FontAttributes="Bold" 
+                   Margin="0,20,0,20" />
+
+            <ListView x:Name="cityListView" 
+                      ItemSelected="OnCitySelected" 
+                      SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="15" 
+                                   Margin="10" 
+                                   CornerRadius="15" 
+                                   BackgroundColor="White" 
+                                   HasShadow="True">
+                                <Grid RowDefinitions="Auto,Auto,Auto">
+                                    <Label Text="{Binding Name}" 
+                                           FontSize="50" 
+                                           FontAttributes="Bold" 
+                                           TextColor="#333" 
+                                           HorizontalOptions="Center" 
+                                           Grid.Row="0" />
+
+                                    <Image Source="{Binding WeatherImage}" 
+                                           HeightRequest="400" 
+                                           WidthRequest="400" 
+                                           HorizontalOptions="Center" 
+                                           Grid.Row="1" />
+
+                                    <ImageButton Source="recycle.png" 
+                                                 Clicked="OnDeleteClicked" 
+                                                 CommandParameter="{Binding .}" 
+                                                 BackgroundColor="Gray" 
+                                                 CornerRadius="30" 
+                                                 HeightRequest="50" 
+                                                 WidthRequest="50" 
+                                                 HorizontalOptions="Center" 
+                                                 Grid.Row="2" />
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
